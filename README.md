@@ -4,7 +4,8 @@
 - 水标线、油标线、截距、油体积 `需要人工输入`
 - 文件夹地址：`必须输入，不能空着，且必须是主目录，包含所有需要计算的内容和信息，如下图1所示`
 
-![image-20230805191426185](C:\Users\qudua\AppData\Roaming\Typora\typora-user-images\image-20230805191426185.png)
+![image](https://github.com/CoderXiaopang/XianChangHeCi/assets/48468342/118dcb26-bd9d-4a9a-b9e5-89216e75ec91)
+
 
 - ['样品编号', '深度m', '原样信号量', '饱水信号量', '饱锰信号量', '原样质量g', '饱和质量g', '体积cm3', '密度g/cm3']   从`综合数据处理`中获取。
 
@@ -15,8 +16,8 @@
   - **要求：样品单中的标题必须占2行，若只有一行，第二行的数据会被删除，也就是必须像 `图2 一样`   不能像`图3` 一样** 这里只是举例，其实用的是样号，表中必须是 `样号` **不能**是其他字符！！！！！！
 
   - 样品单表格中只能有一个 sheet，若存在多个，则默认取最后一个表。
+![image](https://github.com/CoderXiaopang/XianChangHeCi/assets/48468342/22c9a74d-ec06-4149-b773-ef1c80f85758)
 
-    ![image-20230805201853376](C:\Users\qudua\AppData\Roaming\Typora\typora-user-images\image-20230805201853376.png)![image-20230805201920136](C:\Users\qudua\AppData\Roaming\Typora\typora-user-images\image-20230805201920136.png)
 
 - 在计算信号量的时候，inv文件必须是这样的   XXXX-1-1-XXX.inv，也就是**`只支持A-B  不支持A-B-C`**
 
