@@ -173,7 +173,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             t2, Clay = self.t2_and_Clay(row['饱水文件地址'],t2)
             df.at[index, '粘土孔隙度%'] = (Clay/float(self.lineEdit.text())/row['体积cm3']) * 100
 
-            pore_row = row['有效孔隙度%']
+            pore_row = row['总孔隙度%']- df.at[index,'粘土孔隙度%']
             if (row['总孔隙度%'] - df.at[index, '粘土孔隙度%'] - row['极限油孔隙度%']) < 0.1:
                 df.at[index, '有效孔隙度%'] = df.at[index,'极限油孔隙度%'] + (df.at[index,'总孔隙度%'] - df.at[index,'极限油孔隙度%']) * 0.1
             else:
