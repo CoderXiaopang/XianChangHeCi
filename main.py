@@ -173,6 +173,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             t2, Clay = self.t2_and_Clay(row['饱水文件地址'],t2)
             df.at[index, '粘土孔隙度%'] = (Clay/float(self.lineEdit.text())/row['体积cm3']) * 100
 
+            pore_row = row['有效孔隙度%']
             if (row['总孔隙度%'] - df.at[index, '粘土孔隙度%'] - row['极限油孔隙度%']) < 0.1:
                 df.at[index, '有效孔隙度%'] = df.at[index,'极限油孔隙度%'] + (df.at[index,'总孔隙度%'] - df.at[index,'极限油孔隙度%']) * 0.1
             else:
@@ -182,7 +183,7 @@ class MyWindow(QMainWindow, Ui_MainWindow):
             df.at[index, '地面有效含油饱和度%'] = ((df.at[index,'油体积cm3']/df.at[index,'体积cm3'])/ df.at[index,'有效孔隙度%'])*10000
             df.at[index, '地面极限有效含油饱和度%'] = (((df.at[index,'油体积cm3'] + df.at[index,'逸失体积cm3']) / df.at[index,'体积cm3']) / df.at[index,'有效孔隙度%']) * 10000
 
-            if df.at[index, '有效孔隙度%'] - row['极限油孔隙度%'] < 0.1:
+            if pore_row - row['极限油孔隙度%'] < 0.1:
                 df.loc[index, '有效孔隙度%'] = df.at[index,'极限油孔隙度%']  +(df.at[index,'总孔隙度%']  - df.at[index,'极限油孔隙度%'] )*0.1
                 df.loc[index, '粘土孔隙度%'] = df.at[index,'总孔隙度%'] - df.at[index,'有效孔隙度%']
                 Clay = (df.at[index,'粘土孔隙度%']* (float(self.lineEdit.text())/df.at[index,'体积cm3']))/100
